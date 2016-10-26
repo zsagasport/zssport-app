@@ -5,23 +5,23 @@ import { MatchService } from "./match.service";
 @Component({
     selector: 'zssport-match',
     template:`
-        <article class="match" *ngIf="match">
-            <h1>{{title}}</h1>
-            <div class="match">
-                <div class="teams">
-                    <label>{{match.homeClub}}</label> - <label>{{match.awayClub}}</label>
-                </div>
-                <div class="results finished" *ngIf="match.finished">
-                    <span>{{match.homeGoals}}</span>
-                    <span>-</span>
-                    <span>{{match.awayGoals}}</span>
-                </div>
+        <div class="match-content" *ngIf="match">
+            <div class="teams">
+                <label class="home-club">{{match.homeClub}}</label>
+                <span> - </span>
+                <label class="away-club">{{match.awayClub}}</label>
             </div>
-        </article>
-    `
+            <div class="results finished" *ngIf="match.finished">
+                <span>{{match.homeGoals}}</span>
+                <span>-</span>
+                <span>{{match.awayGoals}}</span>
+            </div>
+        </div>
+`
 })
 
 export class MatchComponent implements OnInit {
+    @Input()
     match: Match;
     @Input()
     matchId: number;
@@ -35,6 +35,8 @@ export class MatchComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.getMatch();
+        if(this.matchId) {
+            this.getMatch();
+        }
     }
 }
