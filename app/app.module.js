@@ -10,25 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
-var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var match_service_1 = require('./match.service');
+var round_service_1 = require('./round.service');
 var match_component_1 = require('./match.component');
+var round_component_1 = require('./round.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [
-                platform_browser_1.BrowserModule,
-                forms_1.FormsModule
+                platform_browser_1.BrowserModule
             ],
             declarations: [
                 app_component_1.AppComponent,
-                match_component_1.MatchComponent
+                match_component_1.MatchComponent,
+                round_component_1.RoundComponent
             ],
             providers: [
-                match_service_1.MatchService
+                match_service_1.MatchService,
+                round_service_1.RoundService
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 
