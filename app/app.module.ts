@@ -1,22 +1,24 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
 
 import { AppComponent }   from './app.component';
 import { MatchService }   from './match.service';
+import { RoundService }   from './round.service';
 import { MatchComponent } from './match.component';
+import { RoundComponent }  from './round.component'
 
 @NgModule({
   imports:      [ 
-    BrowserModule,
-    FormsModule
+    BrowserModule
   ],
   declarations: [
     AppComponent,
-    MatchComponent
+    MatchComponent,
+    RoundComponent
   ],
   providers: [
-    MatchService
+    MatchService,
+    RoundService
   ],
   bootstrap:    [ AppComponent ]
 })
