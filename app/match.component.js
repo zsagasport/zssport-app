@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var match_model_1 = require("./match.model");
 var match_service_1 = require("./match.service");
 var MatchComponent = (function () {
     function MatchComponent(matchService) {
@@ -19,8 +20,14 @@ var MatchComponent = (function () {
         this.matchService.getMatch(this.matchId).then(function (match) { return _this.match = match; });
     };
     MatchComponent.prototype.ngOnInit = function () {
-        this.getMatch();
+        if (this.matchId) {
+            this.getMatch();
+        }
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', match_model_1.Match)
+    ], MatchComponent.prototype, "match", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Number)
@@ -28,7 +35,7 @@ var MatchComponent = (function () {
     MatchComponent = __decorate([
         core_1.Component({
             selector: 'zssport-match',
-            template: "\n        <article class=\"match\" *ngIf=\"match\">\n            <h1>{{title}}</h1>\n            <div class=\"match\">\n                <div class=\"teams\">\n                    <label>{{match.homeClub}}</label> - <label>{{match.awayClub}}</label>\n                </div>\n                <div class=\"results finished\" *ngIf=\"match.finished\">\n                    <span>{{match.homeGoals}}</span>\n                    <span>-</span>\n                    <span>{{match.awayGoals}}</span>\n                </div>\n            </div>\n        </article>\n    "
+            template: "\n        <div class=\"match-content\" *ngIf=\"match\">\n            <div class=\"teams\">\n                <label class=\"home-club\">{{match.homeClub}}</label>\n                <span> - </span>\n                <label class=\"away-club\">{{match.awayClub}}</label>\n            </div>\n            <div class=\"results finished\" *ngIf=\"match.finished\">\n                <span>{{match.homeGoals}}</span>\n                <span>-</span>\n                <span>{{match.awayGoals}}</span>\n            </div>\n        </div>\n"
         }), 
         __metadata('design:paramtypes', [match_service_1.MatchService])
     ], MatchComponent);
