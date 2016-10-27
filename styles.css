@@ -1,3 +1,7 @@
+zssport-app {
+    display: block;
+}
+
 zssport-app > h1 {
     text-align: center;
 }
@@ -8,5 +12,10 @@ zssport-app .content {
 }
 
 zssport-match {
+    display: block;
     margin: 5px;
+}
+
+zssport-match label {
+    width: 49%;
 }
