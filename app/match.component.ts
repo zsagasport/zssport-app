@@ -8,7 +8,6 @@ import { MatchService } from "./match.service";
         <div class="match-content" *ngIf="match">
             <div class="teams">
                 <label class="home-club">{{match.homeClub}}</label>
-                <span> - </span>
                 <label class="away-club">{{match.awayClub}}</label>
             </div>
             <div class="results finished" *ngIf="match.finished">
