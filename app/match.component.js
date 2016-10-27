@@ -35,7 +35,7 @@ var MatchComponent = (function () {
     MatchComponent = __decorate([
         core_1.Component({
             selector: 'zssport-match',
-            template: "\n        <div class=\"match-content\" *ngIf=\"match\">\n            <div class=\"teams\">\n                <label class=\"home-club\">{{match.homeClub}}</label>\n                <span> - </span>\n                <label class=\"away-club\">{{match.awayClub}}</label>\n            </div>\n            <div class=\"results finished\" *ngIf=\"match.finished\">\n                <span>{{match.homeGoals}}</span>\n                <span>-</span>\n                <span>{{match.awayGoals}}</span>\n            </div>\n        </div>\n"
+            template: "\n        <div class=\"match-content\" *ngIf=\"match\">\n            <div class=\"teams\">\n                <label class=\"home-club\">{{match.homeClub}}</label>\n                <label class=\"away-club\">{{match.awayClub}}</label>\n            </div>\n            <div class=\"results finished\" *ngIf=\"match.finished\">\n                <span>{{match.homeGoals}}</span>\n                <span>-</span>\n                <span>{{match.awayGoals}}</span>\n            </div>\n        </div>\n"
         }), 
         __metadata('design:paramtypes', [match_service_1.MatchService])
     ], MatchComponent);
