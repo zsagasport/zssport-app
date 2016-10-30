@@ -47,6 +47,14 @@ export class MatchComponent implements OnInit {
         this.matchService.getMatch(this.matchId).then(match => this.match = match);
     }
 
+    isHomeWinner(): boolean {
+        return this.match.homeGoals > this.match.awayGoals;
+    }
+
+    isAwayWinner(): boolean {
+        return this.match.awayGoals > this.match.homeGoals;
+    }
+
     ngOnInit(): void {
         if(this.matchId) {
             this.getMatch();
