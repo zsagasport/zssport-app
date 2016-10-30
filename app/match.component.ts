@@ -25,6 +25,8 @@ export class MatchComponent implements OnInit {
     @Input()
     matchId: number;
     title: 'Match';
+    @Input()
+    matchType: string;
 
     constructor(private matchService: MatchService) {
     }

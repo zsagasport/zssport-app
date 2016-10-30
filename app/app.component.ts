@@ -8,7 +8,7 @@ import { MatchService } from "./match.service";
         <h1>ZsSport Application</h1>
         <div class="col-md-4">
             <h2>Matches requested by id</h2>
-            <zssport-match [matchId]="201617010901"></zssport-match>
+            <zssport-match [matchId]="201617010901" [matchType]="'lined'"></zssport-match>
             <zssport-match [matchId]="201617010902"></zssport-match>
             <zssport-match [matchId]="201617010910"></zssport-match>
         </div>
