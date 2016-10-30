@@ -22,6 +22,6 @@ zssport-match label {
     font-weight: normal;
 }
 
-zssport-match .winner > label{
+zssport-match .winner > label, zssport-match label.winner {
     font-weight: bold;
 }
