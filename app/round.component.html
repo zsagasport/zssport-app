@@ -1,0 +1,4 @@
+<article class="round" *ngIf="round">
+    <h3>{{title}}</h3>
+    <zssport-match [match]="match" *ngFor="let match of matches"></zssport-match>
+</article>

@@ -7,13 +7,10 @@ import { MatchService } from './match.service';
 import { RoundService } from './round.service';
 
 @Component({
+    moduleId: module.id,
     selector: 'zssport-round',
-    template:`
-        <article class="round" *ngIf="round">
-            <h3>{{title}}</h3>
-            <zssport-match [match]="match" *ngFor="let match of matches"></zssport-match>
-        </article>
-    `
+    templateUrl: 'round.component.html',
+    styleUrls: ['round.component.css']
 })
 
 export class RoundComponent implements OnInit {
