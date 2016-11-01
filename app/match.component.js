@@ -19,6 +19,12 @@ var MatchComponent = (function () {
         var _this = this;
         this.matchService.getMatch(this.matchId).then(function (match) { return _this.match = match; });
     };
+    MatchComponent.prototype.isHomeWinner = function () {
+        return this.match.homeGoals > this.match.awayGoals;
+    };
+    MatchComponent.prototype.isAwayWinner = function () {
+        return this.match.awayGoals > this.match.homeGoals;
+    };
     MatchComponent.prototype.ngOnInit = function () {
         if (this.matchId) {
             this.getMatch();
@@ -39,7 +45,7 @@ var MatchComponent = (function () {
     MatchComponent = __decorate([
         core_1.Component({
             selector: 'zssport-match',
-            template: "\n        <div class=\"match-content\" *ngIf=\"match\" [ngSwitch]=\"matchType\">\n            <template [ngSwitchCase]=\"'lined'\">\n                <div class=\"home-team {{match.homeGoals > match.awayGoals ? 'winner' : ''}}\" >\n                    <label class=\"home-club\">{{match.homeClub}}</label>\n                    <span class=\"goals\">{{match.homeGoals}}</span>\n                </div>\n                <div class=\"away-team {{match.awayGoals > match.homeGoals ? 'winner' : ''}}\" *ngIf=\"match.finished\">\n                    <label class=\"away-club\">{{match.awayClub}}</label>\n                    <span class=\"goals\">{{match.awayGoals}}</span>\n                </div>\n            </template>\n            <template ngSwitchDefault>\n                <div class=\"teams\">\n                    <label class=\"home-club\">{{match.homeClub}}</label>\n                    <label class=\"away-club\">{{match.awayClub}}</label>\n                </div>\n                <div class=\"results finished\" *ngIf=\"match.finished\">\n                    <span>{{match.homeGoals}}</span>\n                    <span>-</span>\n                    <span>{{match.awayGoals}}</span>\n                </div>\n            </template>\n        </div>\n"
+            template: "\n        <div class=\"match-content\" *ngIf=\"match\" [ngSwitch]=\"matchType\">\n            <template [ngSwitchCase]=\"'lined'\">\n                <div class=\"home-team\"  [class.winner]=\"isHomeWinner()\" >\n                    <label class=\"home-club\">{{match.homeClub}}</label>\n                    <span class=\"goals\">{{match.homeGoals}}</span>\n                </div>\n                <div class=\"away-team\"  [class.winner]=\"isAwayWinner()\" *ngIf=\"match.finished\">\n                    <label class=\"away-club\">{{match.awayClub}}</label>\n                    <span class=\"goals\">{{match.awayGoals}}</span>\n                </div>\n            </template>\n            <template ngSwitchDefault>\n                <div class=\"teams\">\n                    <label class=\"home-club\" [class.winner]=\"isHomeWinner()\">{{match.homeClub}}</label>\n                    <label class=\"away-club\" [class.winner]=\"isAwayWinner()\">{{match.awayClub}}</label>\n                </div>\n                <div class=\"results finished\" *ngIf=\"match.finished\">\n                    <span>{{match.homeGoals}}</span>\n                    <span>-</span>\n                    <span>{{match.awayGoals}}</span>\n                </div>\n            </template>\n        </div>\n"
         }), 
         __metadata('design:paramtypes', [match_service_1.MatchService])
     ], MatchComponent);
