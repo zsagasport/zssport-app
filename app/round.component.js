@@ -35,8 +35,10 @@ var RoundComponent = (function () {
     ], RoundComponent.prototype, "roundId", void 0);
     RoundComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'zssport-round',
-            template: "\n        <article class=\"round\" *ngIf=\"round\">\n            <h3>{{title}}</h3>\n            <zssport-match [match]=\"match\" *ngFor=\"let match of matches\"></zssport-match>\n        </article>\n    "
+            templateUrl: 'round.component.html',
+            styleUrls: ['round.component.css']
         }), 
         __metadata('design:paramtypes', [round_service_1.RoundService, match_service_1.MatchService])
     ], RoundComponent);
