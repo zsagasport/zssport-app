@@ -12,18 +12,36 @@ import { MatchService } from "./match.service";
         </nav>
 
         <div class="col-md-4">
-            <h2>Matches requested by id</h2>
-            <zssport-match [matchId]="201617010801" [matchType]="'lined'"></zssport-match>
-            <zssport-match [matchId]="201617010802"></zssport-match>
-            <zssport-match [matchId]="201617010810"></zssport-match>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2>Matches requested by id</h2>
+                </div>
+                <div class="panel-body">
+                    <zssport-match [matchId]="201617010801" [matchType]="'lined'"></zssport-match>
+                    <zssport-match [matchId]="201617010802"></zssport-match>
+                    <zssport-match [matchId]="201617010810"></zssport-match>
+                </div>
+            </div>
         </div>
         <div class="col-md-4">
-             <h2>Matches requested by round</h2>
-             <zssport-round [roundId]="2016170208"></zssport-round>
+             <div class="panel panel-default">
+                <div class="panel-heading">
+                     <h2>Matches requested by round</h2>
+                </div>
+                <div class="panel-body">
+                   <zssport-round [roundId]="2016170208"></zssport-round>
+                </div>
+            </div>
         </div>
          <div class="col-md-4">
-             <h2>Matches requested by round</h2>
-             <zssport-round [roundId]="2016170209"></zssport-round>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                      <h2>Matches requested by round</h2>
+                </div>
+                <div class="panel-body">
+                  <zssport-round [roundId]="2016170209"></zssport-round>
+                </div>
+            </div>
         </div>
     `
 })
