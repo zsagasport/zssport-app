@@ -3,32 +3,9 @@ import { Match } from "./match.model";
 import { MatchService } from "./match.service";
 
 @Component({
+    moduleId: module.id,
     selector: 'zssport-match',
-    template:`
-        <div class="match-content" *ngIf="match" [ngSwitch]="matchType">
-            <template [ngSwitchCase]="'lined'">
-                <div class="home-team"  [class.winner]="isHomeWinner()" >
-                    <label class="home-club">{{match.homeClub}}</label>
-                    <span class="goals">{{match.homeGoals}}</span>
-                </div>
-                <div class="away-team"  [class.winner]="isAwayWinner()" *ngIf="match.finished">
-                    <label class="away-club">{{match.awayClub}}</label>
-                    <span class="goals">{{match.awayGoals}}</span>
-                </div>
-            </template>
-            <template ngSwitchDefault>
-                <div class="teams">
-                    <label class="home-club" [class.winner]="isHomeWinner()">{{match.homeClub}}</label>
-                    <label class="away-club" [class.winner]="isAwayWinner()">{{match.awayClub}}</label>
-                </div>
-                <div class="results finished" *ngIf="match.finished">
-                    <span>{{match.homeGoals}}</span>
-                    <span>-</span>
-                    <span>{{match.awayGoals}}</span>
-                </div>
-            </template>
-        </div>
-`
+    templateUrl: 'match.component.html',
     styleUrls: ['match.component.css']
 })
 
