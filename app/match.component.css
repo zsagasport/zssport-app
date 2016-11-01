@@ -5,10 +5,13 @@
 }
 
 :host label {
-    width: 49%;
     font-weight: normal;
 }
 
 :host .winner > label, :host label.winner {
     font-weight: bold;
+}
+
+:host .bordered {
+    border-bottom: 1px solid #e3f2fd;
 }

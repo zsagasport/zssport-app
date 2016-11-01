@@ -1,20 +1,20 @@
-<div class="match-content" *ngIf="match" [ngSwitch]="matchType">
+<div class="match-content bordered" *ngIf="match" [ngSwitch]="matchType">
     <template [ngSwitchCase]="'lined'">
         <div class="home-team"  [class.winner]="isHomeWinner()" >
-            <label class="home-club">{{match.homeClub}}</label>
+            <label class="home-club w-90">{{match.homeClub}}</label>
             <span class="goals">{{match.homeGoals}}</span>
         </div>
         <div class="away-team"  [class.winner]="isAwayWinner()" *ngIf="match.finished">
-            <label class="away-club">{{match.awayClub}}</label>
+            <label class="away-club w-90">{{match.awayClub}}</label>
             <span class="goals">{{match.awayGoals}}</span>
         </div>
     </template>
     <template ngSwitchDefault>
         <div class="teams">
-            <label class="home-club" [class.winner]="isHomeWinner()">{{match.homeClub}}</label>
-            <label class="away-club" [class.winner]="isAwayWinner()">{{match.awayClub}}</label>
+            <label class="home-club w-49 left" [class.winner]="isHomeWinner()">{{match.homeClub}}</label>
+            <label class="away-club w-49 right" [class.winner]="isAwayWinner()">{{match.awayClub}}</label>
         </div>
-        <div class="results finished" *ngIf="match.finished">
+        <div class="results finished center" *ngIf="match.finished">
             <span>{{match.homeGoals}}</span>
             <span>-</span>
             <span>{{match.awayGoals}}</span>

@@ -7,8 +7,12 @@ body {
     background-color: #0d47a1;
 }
 
-h1,h2,h3,h4 {
+h1,h3,h4 {
     color: #ff9800;
+}
+
+h2 {
+    color: #1565c0;
 }
 
 zssport-app {
@@ -22,4 +26,28 @@ zssport-app > h1 {
 zssport-app .content {
     display: inline-block;
     width: 33%;
+}
+
+zssport-app .panel-heading {
+    background-color: #fff3e0;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+.w-49 {
+    width: 49%;
+}
+
+.w-90 {
+    width: 90%;
 }
