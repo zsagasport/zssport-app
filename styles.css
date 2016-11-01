@@ -10,18 +10,3 @@ zssport-app .content {
     display: inline-block;
     width: 33%;
 }
-
-zssport-match {
-    display: block;
-    font-weight: normal;
-    margin: 5px;
-}
-
-zssport-match label {
-    width: 49%;
-    font-weight: normal;
-}
-
-zssport-match .winner > label, zssport-match label.winner {
-    font-weight: bold;
-}

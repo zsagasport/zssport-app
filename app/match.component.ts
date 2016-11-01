@@ -29,6 +29,7 @@ import { MatchService } from "./match.service";
             </template>
         </div>
 `
+    styleUrls: ['match.component.css']
 })
 
 export class MatchComponent implements OnInit {

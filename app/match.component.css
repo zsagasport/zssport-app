@@ -1,0 +1,14 @@
+:host {
+    display: block;
+    font-weight: normal;
+    margin: 5px;
+}
+
+:host label {
+    width: 49%;
+    font-weight: normal;
+}
+
+:host .winner > label, :host label.winner {
+    font-weight: bold;
+}
