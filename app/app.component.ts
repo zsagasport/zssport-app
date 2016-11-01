@@ -5,7 +5,12 @@ import { MatchService } from "./match.service";
 @Component({
     selector: 'zssport-app',
     template:`
-        <h1>ZsSport Application</h1>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <h1>{{title}}</h1>
+            </div>
+        </nav>
+
         <div class="col-md-4">
             <h2>Matches requested by id</h2>
             <zssport-match [matchId]="201617010801" [matchType]="'lined'"></zssport-match>
