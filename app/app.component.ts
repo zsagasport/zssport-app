@@ -29,5 +29,5 @@ import { MatchService } from "./match.service";
 })
 
 export class AppComponent {
-    title: 'ZsSport';
+    title: string = 'ZsSport';
 }
