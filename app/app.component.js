@@ -15,7 +15,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'zssport-app',
-            template: "\n        <h1>ZsSport Application</h1>\n        <div class=\"col-md-4\">\n            <h2>Matches requested by id</h2>\n            <zssport-match [matchId]=\"201617010901\" [matchType]=\"'lined'\"></zssport-match>\n            <zssport-match [matchId]=\"201617010902\"></zssport-match>\n            <zssport-match [matchId]=\"201617010910\"></zssport-match>\n        </div>\n        <div class=\"col-md-4\">\n             <h2>Matches requested by round</h2>\n             <zssport-round [roundId]=\"2016170208\"></zssport-round>\n        </div>\n    "
+            template: "\n        <h1>ZsSport Application</h1>\n        <div class=\"col-md-4\">\n            <h2>Matches requested by id</h2>\n            <zssport-match [matchId]=\"201617010801\" [matchType]=\"'lined'\"></zssport-match>\n            <zssport-match [matchId]=\"201617010802\"></zssport-match>\n            <zssport-match [matchId]=\"201617010810\"></zssport-match>\n        </div>\n        <div class=\"col-md-4\">\n             <h2>Matches requested by round</h2>\n             <zssport-round [roundId]=\"2016170208\"></zssport-round>\n        </div>\n         <div class=\"col-md-4\">\n             <h2>Matches requested by round</h2>\n             <zssport-round [roundId]=\"2016170209\"></zssport-round>\n        </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

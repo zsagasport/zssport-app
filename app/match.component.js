@@ -44,8 +44,10 @@ var MatchComponent = (function () {
     ], MatchComponent.prototype, "matchType", void 0);
     MatchComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'zssport-match',
-            template: "\n        <div class=\"match-content\" *ngIf=\"match\" [ngSwitch]=\"matchType\">\n            <template [ngSwitchCase]=\"'lined'\">\n                <div class=\"home-team\"  [class.winner]=\"isHomeWinner()\" >\n                    <label class=\"home-club\">{{match.homeClub}}</label>\n                    <span class=\"goals\">{{match.homeGoals}}</span>\n                </div>\n                <div class=\"away-team\"  [class.winner]=\"isAwayWinner()\" *ngIf=\"match.finished\">\n                    <label class=\"away-club\">{{match.awayClub}}</label>\n                    <span class=\"goals\">{{match.awayGoals}}</span>\n                </div>\n            </template>\n            <template ngSwitchDefault>\n                <div class=\"teams\">\n                    <label class=\"home-club\" [class.winner]=\"isHomeWinner()\">{{match.homeClub}}</label>\n                    <label class=\"away-club\" [class.winner]=\"isAwayWinner()\">{{match.awayClub}}</label>\n                </div>\n                <div class=\"results finished\" *ngIf=\"match.finished\">\n                    <span>{{match.homeGoals}}</span>\n                    <span>-</span>\n                    <span>{{match.awayGoals}}</span>\n                </div>\n            </template>\n        </div>\n"
+            templateUrl: 'match.component.html',
+            styleUrls: ['match.component.css']
         }), 
         __metadata('design:paramtypes', [match_service_1.MatchService])
     ], MatchComponent);
