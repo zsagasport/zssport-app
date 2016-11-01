@@ -7,19 +7,19 @@ import { MatchService } from "./match.service";
     template:`
         <div class="match-content" *ngIf="match" [ngSwitch]="matchType">
             <template [ngSwitchCase]="'lined'">
-                <div class="home-team {{match.homeGoals > match.awayGoals ? 'winner' : ''}}" >
+                <div class="home-team"  [class.winner]="isHomeWinner()" >
                     <label class="home-club">{{match.homeClub}}</label>
                     <span class="goals">{{match.homeGoals}}</span>
                 </div>
-                <div class="away-team {{match.awayGoals > match.homeGoals ? 'winner' : ''}}" *ngIf="match.finished">
+                <div class="away-team"  [class.winner]="isAwayWinner()" *ngIf="match.finished">
                     <label class="away-club">{{match.awayClub}}</label>
                     <span class="goals">{{match.awayGoals}}</span>
                 </div>
             </template>
             <template ngSwitchDefault>
                 <div class="teams">
-                    <label class="home-club">{{match.homeClub}}</label>
-                    <label class="away-club">{{match.awayClub}}</label>
+                    <label class="home-club" [class.winner]="isHomeWinner()">{{match.homeClub}}</label>
+                    <label class="away-club" [class.winner]="isAwayWinner()">{{match.awayClub}}</label>
                 </div>
                 <div class="results finished" *ngIf="match.finished">
                     <span>{{match.homeGoals}}</span>
