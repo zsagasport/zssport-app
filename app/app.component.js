@@ -11,11 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
+        this.title = 'ZsSport';
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'zssport-app',
-            template: "\n        <h1>ZsSport Application</h1>\n        <div class=\"col-md-4\">\n            <h2>Matches requested by id</h2>\n            <zssport-match [matchId]=\"201617010801\" [matchType]=\"'lined'\"></zssport-match>\n            <zssport-match [matchId]=\"201617010802\"></zssport-match>\n            <zssport-match [matchId]=\"201617010810\"></zssport-match>\n        </div>\n        <div class=\"col-md-4\">\n             <h2>Matches requested by round</h2>\n             <zssport-round [roundId]=\"2016170208\"></zssport-round>\n        </div>\n         <div class=\"col-md-4\">\n             <h2>Matches requested by round</h2>\n             <zssport-round [roundId]=\"2016170209\"></zssport-round>\n        </div>\n    "
+            template: "\n        <nav class=\"navbar navbar-default\">\n            <div class=\"container-fluid\">\n                <h1>{{title}}</h1>\n            </div>\n        </nav>\n\n        <div class=\"col-md-4\">\n            <h2>Matches requested by id</h2>\n            <zssport-match [matchId]=\"201617010801\" [matchType]=\"'lined'\"></zssport-match>\n            <zssport-match [matchId]=\"201617010802\"></zssport-match>\n            <zssport-match [matchId]=\"201617010810\"></zssport-match>\n        </div>\n        <div class=\"col-md-4\">\n             <h2>Matches requested by round</h2>\n             <zssport-round [roundId]=\"2016170208\"></zssport-round>\n        </div>\n         <div class=\"col-md-4\">\n             <h2>Matches requested by round</h2>\n             <zssport-round [roundId]=\"2016170209\"></zssport-round>\n        </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
