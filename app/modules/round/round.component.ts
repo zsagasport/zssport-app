@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Round } from './round.model';
-import { Match } from './match.model';
+import { RoundModel } from '../../models/round.model';
+import { MatchModel } from '../../models/match.model';
 
-import { MatchService } from './match.service';
-import { RoundService } from './round.service';
+import { MatchService } from '../../services/match.service';
+import { RoundService } from '../../services/round.service';
 
 @Component({
     moduleId: module.id,
@@ -17,8 +17,8 @@ export class RoundComponent implements OnInit {
     title: string;
     @Input()
     roundId: number;
-    round: Round;
-    matches: Match[];
+    round: RoundModel;
+    matches: MatchModel[];
 
     constructor(private roundService: RoundService, private matchService: MatchService) {
     }

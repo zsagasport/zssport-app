@@ -8,24 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var mock_rounds_1 = require('./mock-rounds');
-var RoundService = (function () {
-    function RoundService() {
+var core_1 = require("@angular/core");
+var SportService = (function () {
+    function SportService() {
     }
-    RoundService.prototype.getRound = function (roundId) {
-        return Promise.resolve(mock_rounds_1.ROUNDS.filter(function (round) {
-            return roundId == round.id;
-        })[0]);
-    };
-    RoundService.prototype.getRounds = function () {
-        return Promise.resolve(mock_rounds_1.ROUNDS);
-    };
-    RoundService = __decorate([
+    SportService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], RoundService);
-    return RoundService;
+    ], SportService);
+    return SportService;
 }());
-exports.RoundService = RoundService;
-//# sourceMappingURL=round.service.js.map
+exports.SportService = SportService;
+//# sourceMappingURL=sport.service.js.map

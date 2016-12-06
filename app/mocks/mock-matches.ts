@@ -1,4 +1,4 @@
-import { Match } from "./match.model";
+import { MatchModel } from "../models/match.model";
 
 const
     ARSENAL = "Arsenal",
@@ -22,7 +22,7 @@ const
     WESTBROM = "West Brom",
     WESTHAM = "West Ham";
 
-export const MATCHES:Match[] = [
+export const MATCHES:Array<MatchModel> = [
     {
         id: 201617010801,
         homeClub: CHELSEA,

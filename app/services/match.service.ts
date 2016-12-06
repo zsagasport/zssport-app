@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
 
-import { Match } from "./match.model";
+import { MatchModel } from "../models/match.model";
 
-import { MATCHES } from "./mock-matches";
+import { MATCHES } from "../mocks/mock-matches";
 
 @Injectable()
 export class MatchService {
-    getMatch(matchId: number): Promise<Match> {
+    getMatch(matchId: number): Promise<MatchModel> {
         return Promise.resolve(
             MATCHES.filter(match => {
                 return matchId == match.id;
@@ -14,11 +14,11 @@ export class MatchService {
         );
     }
 
-    getMatches(): Promise<Match[]> {
+    getMatches(): Promise<MatchModel[]> {
         return Promise.resolve(MATCHES);
     }
 
-    getMatchesByRound(round: number): Promise<Match[]> {
+    getMatchesByRound(round: number): Promise<MatchModel[]> {
          return Promise.resolve(
              MATCHES.filter(match => {
                 return round == match.round;

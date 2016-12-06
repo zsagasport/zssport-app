@@ -1,6 +1,6 @@
-import { Round } from './round.model'
+import { RoundModel } from '../models/round.model'
 
-export const ROUNDS: Round[] = [
+export const ROUNDS: Array<RoundModel> = [
     {
         id:2016170208,
         num: 8

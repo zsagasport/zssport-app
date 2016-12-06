@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import { Round } from './round.model';
+import { RoundModel } from '../models/round.model';
 
-import { ROUNDS } from './mock-rounds';
+import { ROUNDS } from '../mocks/mock-rounds';
 
 @Injectable()
 export class RoundService {
-    getRound(roundId: number): Promise<Round> {
+    getRound(roundId: number): Promise<RoundModel> {
         return Promise.resolve(
             ROUNDS.filter(round => {
                 return roundId == round.id;
@@ -14,7 +14,7 @@ export class RoundService {
         );
     }
 
-    getRounds(): Promise<Round[]> {
+    getRounds(): Promise<RoundModel[]> {
         return Promise.resolve(ROUNDS);
     }
 }

@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var match_model_1 = require("./match.model");
-var match_service_1 = require("./match.service");
+var match_model_1 = require("../../models/match.model");
+var match_service_1 = require("../../services/match.service");
 var MatchComponent = (function () {
     function MatchComponent(matchService) {
         this.matchService = matchService;
@@ -32,7 +32,7 @@ var MatchComponent = (function () {
     };
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', match_model_1.Match)
+        __metadata('design:type', match_model_1.MatchModel)
     ], MatchComponent.prototype, "match", void 0);
     __decorate([
         core_1.Input(), 

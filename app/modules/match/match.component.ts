@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Match } from "./match.model";
-import { MatchService } from "./match.service";
+import { MatchModel } from "../../models/match.model";
+import { MatchService } from "../../services/match.service";
 
 @Component({
     moduleId: module.id,
@@ -11,7 +11,7 @@ import { MatchService } from "./match.service";
 
 export class MatchComponent implements OnInit {
     @Input()
-    match: Match;
+    match: MatchModel;
     @Input()
     matchId: number;
     title: 'Match';
