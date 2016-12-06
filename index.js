@@ -4,32 +4,16 @@ var expressFallback = require('express-history-api-fallback');
 
 var mongo = require('mongodb');
 var monk = require('monk');
-
 var db = monk('localhost:27017/zssport');
 var matches = db.get('match');
 var rounds = db.get('round');
-var clubs = db.get('club');
+
 var app = express();
+
+var clubRouter = require('./app/routers/club-router');
+
 var bodyParser = require('body-parser');
 var parseUrlEncoded = bodyParser.json({extended: true});
-
-var createClub = function(body) {
-    return {
-        title: body.title
-    }
-};
-
-var getClubs = function(response) {
-	clubs.find(
-        {},
-		function(error, results) {
-            if (results) {
-                response.json(results);
-            } else {
-                response.end();
-            }
-	});
-};
 
 var getMatches = function(roundId, response) {
 	matches.find(
@@ -54,35 +38,15 @@ var getRounds = function(roundId, response) {
 
 app.use(cors());
 
-app.post('/club', parseUrlEncoded, function(request, response) {
-    console.log(request);
-
-    var club = createClub(request.body);
-
-    console.log(club);
-
-    clubs.insert(
-        club,
-		function(error, results) {
-            if (results) {
-                response.status(201).json(results);
-            } else {
-                response.end();
-            }
-	});
-});
-
 app.use(express.static(__dirname));
+
+app.use(bodyParser.json());
 
 app.get('/', function(request, response){
     response.sendFile('index.html', {root: __dirname + '/public'});
 });
 
-app.get('/club', function (request, response) {
-	console.log('Club started');
-
-	getClubs(response);
-});
+app.use('/club', clubRouter);
 
 app.get('/matches', function (request, response) {
 	console.log('Matches started');
