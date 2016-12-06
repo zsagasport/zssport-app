@@ -1,0 +1,28 @@
+<div class="club-view bordered">    
+    <h1>{{title}}</h1>
+    <div class="col-md-6">
+        <h2>Club list</h2>
+        <ul>
+            <li *ngFor="let club of clubs">
+                {{club.title}}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h2>Add club</h2>
+      
+        <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)">
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" formControlName="title">
+                <small *ngIf="!myForm.controls.title.valid" class="text-danger">
+                    Title is required.
+                </small>
+            </div>
+
+            <div class="margin-20">
+                <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
