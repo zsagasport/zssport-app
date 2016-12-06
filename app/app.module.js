@@ -10,27 +10,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var http_1 = require('@angular/http');
+var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
-var match_service_1 = require('./match.service');
-var round_service_1 = require('./round.service');
-var match_component_1 = require('./match.component');
-var round_component_1 = require('./round.component');
+var app_routing_module_1 = require('./app-routing.module');
+var club_view_component_1 = require('./modules/club/club-view.component');
+var sport_view_component_1 = require('./modules/sport/sport-view.component');
+var club_service_1 = require('./services/club/club.service');
+var sport_service_1 = require('./services/sport.service');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [
-                platform_browser_1.BrowserModule
+                app_routing_module_1.AppRoutingModule,
+                platform_browser_1.BrowserModule,
+                forms_1.FormsModule,
+                http_1.HttpModule,
+                forms_1.ReactiveFormsModule
             ],
             declarations: [
                 app_component_1.AppComponent,
-                match_component_1.MatchComponent,
-                round_component_1.RoundComponent
+                club_view_component_1.ClubViewComponent,
+                sport_view_component_1.SportViewComponent
             ],
             providers: [
-                match_service_1.MatchService,
-                round_service_1.RoundService
+                club_service_1.ClubService,
+                sport_service_1.SportService
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

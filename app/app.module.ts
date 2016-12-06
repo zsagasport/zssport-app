@@ -1,24 +1,33 @@
-import { NgModule }       from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
+import { NgModule }             from '@angular/core';
+import { BrowserModule }        from '@angular/platform-browser';
+import { HttpModule }           from '@angular/http';
+import { FormsModule,
+        ReactiveFormsModule }   from '@angular/forms';
 
-import { AppComponent }   from './app.component';
-import { MatchService }   from './match.service';
-import { RoundService }   from './round.service';
-import { MatchComponent } from './match.component';
-import { RoundComponent }  from './round.component'
+import { AppComponent }         from './app.component';
+import { AppRoutingModule }     from './app-routing.module';
+import { ClubViewComponent }    from './modules/club/club-view.component';
+import { SportViewComponent }   from './modules/sport/sport-view.component';
+import { ClubService }          from './services/club/club.service';
+import { SportService }         from './services/sport.service';
+
 
 @NgModule({
   imports:      [ 
-    BrowserModule
+    AppRoutingModule,
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
-    MatchComponent,
-    RoundComponent
+    ClubViewComponent,
+    SportViewComponent
   ],
   providers: [
-    MatchService,
-    RoundService
+    ClubService,
+    SportService
   ],
   bootstrap:    [ AppComponent ]
 })
