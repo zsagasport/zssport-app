@@ -1,4 +1,14 @@
 <div class="club-view bordered">
     <h1>{{title}}</h1>
-    
+     <div class="col-md-6">
+        <h2>Sport list</h2>
+        <ul>
+            <li *ngFor="let sport of sports">
+                {{sport.title}}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+       
+    </div>
 </div>
