@@ -11,6 +11,8 @@ app.get('/', function (request, response) {
 });
 var clubRouter = require('./app/routers/club/club.router');
 app.use('/club', clubRouter);
+var sportRouter = require('./app/routers/sport/sport.router');
+app.use('/sport', sportRouter);
 var matchRouter = require('./app/routers/match/match.router');
 app.use('/match', matchRouter);
 var roundRouter = require('./app/routers/round/round.router');
