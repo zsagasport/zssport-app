@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var forms_1 = require('@angular/forms');
-var club_model_1 = require("../../models/club.model");
+var club_model_1 = require("../../models/club/club.model");
 var club_service_1 = require("../../services/club/club.service");
 var ClubViewComponent = (function () {
     function ClubViewComponent(clubService, formBuilder) {

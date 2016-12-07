@@ -1,4 +1,4 @@
-import { RoundModel } from '../models/round.model'
+import { RoundModel } from '../models/round/round.model'
 
 export const ROUNDS: Array<RoundModel> = [
     {

@@ -1,4 +1,4 @@
-import { MatchModel } from "../models/match.model";
+import { MatchModel } from "../models/match/match.model";
 
 const
     ARSENAL = "Arsenal",

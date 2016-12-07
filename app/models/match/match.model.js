@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var base_model_1 = require("./base.model");
+var base_model_1 = require("../base.model");
 var MatchModel = (function (_super) {
     __extends(MatchModel, _super);
     function MatchModel() {

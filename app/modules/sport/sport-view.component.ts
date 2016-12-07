@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { SportModel } from "../../models/sport.model";
+import { SportModel } from "../../models/sport/sport.model";
 
 @Component({
      moduleId: module.id,

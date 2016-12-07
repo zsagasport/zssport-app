@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { RoundModel } from '../../models/round.model';
-import { MatchModel } from '../../models/match.model';
+import { RoundModel } from '../../models/round/round.model';
+import { MatchModel } from '../../models/match/match.model';
 
 import { MatchService } from '../../services/match.service';
 import { RoundService } from '../../services/round.service';

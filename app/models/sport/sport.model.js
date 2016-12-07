@@ -4,21 +4,19 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var base_model_1 = require("./base.model");
-var ClubModel = (function (_super) {
-    __extends(ClubModel, _super);
-    function ClubModel(id, title) {
-        if (id === void 0) { id = 0; }
-        _super.call(this, id);
-        this.title = title;
+var base_model_1 = require("../base.model");
+var SportModel = (function (_super) {
+    __extends(SportModel, _super);
+    function SportModel() {
+        _super.apply(this, arguments);
     }
-    ClubModel.prototype.stringify = function () {
+    SportModel.prototype.stringify = function () {
         return JSON.stringify({
             _id: this.id,
             title: this.title
         });
     };
-    return ClubModel;
+    return SportModel;
 }(base_model_1.BaseModel));
-exports.ClubModel = ClubModel;
-//# sourceMappingURL=club.model.js.map
+exports.SportModel = SportModel;
+//# sourceMappingURL=sport.model.js.map

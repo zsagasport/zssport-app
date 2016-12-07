@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 import { BaseService }      from "../base.service";
 import { Configuration }    from "../util/configuration";
 import { BaseModel }        from "../../models/base.model";
-import { ClubModel }        from "../../models/club.model";
+import { ClubModel }        from "../../models/club/club.model";
 
 @Injectable()
 export class ClubService extends BaseService {

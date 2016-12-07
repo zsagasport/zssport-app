@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { ClubModel } from "../../models/club.model";
+import { ClubModel } from "../../models/club/club.model";
 import { ClubService } from "../../services/club/club.service";
 
 @Component({
