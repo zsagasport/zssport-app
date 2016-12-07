@@ -5,36 +5,15 @@ var expressFallback = require('express-history-api-fallback');
 var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/zssport');
-var matches = db.get('match');
-var rounds = db.get('round');
 
 var app = express();
 
-var clubRouter = require('./app/routers/club-router');
+var clubRouter = require('./app/routers/club/club.router');
+var matchRouter = require('./app/routers/match/match.router');
+var roundRouter = require('./app/routers/round/round.router');
 
 var bodyParser = require('body-parser');
 var parseUrlEncoded = bodyParser.json({extended: true});
-
-var getMatches = function(roundId, response) {
-	matches.find(
-		{"roundId":roundId},
-		function(error, results){
-			// json.matches = results;
-
-			response.json(roundMatches);
-	});
-};
-
-var getRounds = function(roundId, response) {
-	rounds.find(
-		{"roundId":roundId},
-		function(error, results) {
-			json.rounds = results;
-
-			response.json(json);
-		}
-	);
-};
 
 app.use(cors());
 
@@ -47,18 +26,8 @@ app.get('/', function(request, response){
 });
 
 app.use('/club', clubRouter);
-
-app.get('/matches', function (request, response) {
-	console.log('Matches started');
-
-	getMatches(parseInt(request.query.roundId), response);
-});
-
-app.get('/rounds', function (request, response) {
-	console.log('Rounds started');
-
-	getRounds(parseInt(request.query.roundId), response);
-});
+app.use('/match', matchRouter);
+app.use('/round', roundRouter);
 
 app.get('/summarized', function (request, response) {
 	var data = {
