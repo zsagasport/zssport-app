@@ -12,11 +12,13 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var club_view_component_1 = require('./modules/club/club-view.component');
 var competition_view_component_1 = require('./modules/competition/competition-view.component');
+var season_view_component_1 = require('./modules/season/season-view.component');
 var sport_view_component_1 = require('./modules/sport/sport-view.component');
 var routes = [
     { path: '', redirectTo: '/sportview', pathMatch: 'full' },
     { path: 'clubview', component: club_view_component_1.ClubViewComponent },
     { path: 'competitionview', component: competition_view_component_1.CompetitionViewComponent },
+    { path: 'seasonview', component: season_view_component_1.SeasonViewComponent },
     { path: 'sportview', component: sport_view_component_1.SportViewComponent }
 ];
 var AppRoutingModule = (function () {

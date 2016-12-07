@@ -22,6 +22,9 @@ app.use('/club', clubRouter);
 
 var sportRouter = require('./app/routers/sport/sport.router');
 
+var seasonRouter = require('./app/routers/season/season.router');
+app.use('/season', seasonRouter);
+
 app.use('/sport', sportRouter);
 
 var matchRouter = require('./app/routers/match/match.router');
