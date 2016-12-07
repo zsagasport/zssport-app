@@ -16,7 +16,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'zssport-app',
-            template: "\n        <nav class=\"navbar navbar-default\">\n            <div class=\"container-fluid\">\n                <ul class=\"nav navbar-nav\">\n                <li><a routerLink=\"/sportview\" routerLinkActive=\"active\">Sport View</a></li>\n                <li><a routerLink=\"/clubview\" routerLinkActive=\"active\">Club View</a></li>\n                </ul>\n            </div>\n        </nav>\n        <router-outlet></router-outlet>\n    "
+            template: "\n        <nav class=\"navbar navbar-default\">\n            <div class=\"container-fluid\">\n                <ul class=\"nav navbar-nav\">\n                <li><a routerLink=\"/sportview\" routerLinkActive=\"active\">Sport View</a></li>\n                <li><a routerLink=\"/clubview\" routerLinkActive=\"active\">Club View</a></li>\n                <li><a routerLink=\"/competitionview\" routerLinkActive=\"active\">Competition View</a></li>\n                </ul>\n            </div>\n        </nav>\n        <router-outlet></router-outlet>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

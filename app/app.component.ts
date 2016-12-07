@@ -8,6 +8,7 @@ import { Component, OnInit } from "@angular/core";
                 <ul class="nav navbar-nav">
                 <li><a routerLink="/sportview" routerLinkActive="active">Sport View</a></li>
                 <li><a routerLink="/clubview" routerLinkActive="active">Club View</a></li>
+                <li><a routerLink="/competitionview" routerLinkActive="active">Competition View</a></li>
                 </ul>
             </div>
         </nav>
