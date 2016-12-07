@@ -10,17 +10,17 @@ import 'rxjs/add/operator/catch';
 import { BaseService }      from "../base.service";
 import { Configuration }    from "../util/configuration";
 import { BaseModel }        from "../../models/base.model";
-import { ClubModel }        from "../../models/club/club.model";
+import { SportModel }        from "../../models/sport/sport.model";
 
 @Injectable()
-export class ClubService extends BaseService {
+export class SportService extends BaseService {
     private actionUrl: string;
     private headers: Headers;
 
     constructor(private http: Http) {
         super(new Configuration());
 
-        this.actionUrl = this.configuration.serverWithApiUrl + 'club';
+        this.actionUrl = this.configuration.serverWithApiUrl + 'sport';
 
         this.headers = new Headers();
         this.headers.append('Content-Type', 'application/json');
@@ -28,22 +28,22 @@ export class ClubService extends BaseService {
     }
 
     add(baseModel: BaseModel): Observable<BaseModel>  {
-        let toAdd = (<ClubModel>baseModel).stringify();
+        let toAdd = (<SportModel>baseModel).stringify();
  
         return this.http.post(this.actionUrl, toAdd, { headers: this.headers })
-            .map((response: Response) => <BaseModel>response.json())
+            .map((response: Response) => <SportModel>response.json())
             .catch(this.handleError);
     }
 
     getAll(): Observable<Array<BaseModel>> {
         return this.http.get(this.actionUrl)
-            .map((response: Response) => <Array<BaseModel>>response.json())
+            .map((response: Response) => <Array<SportModel>>response.json())
             .catch(this.handleError);
     }
 
     getById(id: number): Observable<BaseModel> {
         return this.http.get(this.actionUrl + '/:id' + id)
-            .map((response: Response) => <BaseModel>response.json())
+            .map((response: Response) => <SportModel>response.json())
             .catch(this.handleError);
     }
     

@@ -17,7 +17,7 @@ var app_routing_module_1 = require('./app-routing.module');
 var club_view_component_1 = require('./modules/club/club-view.component');
 var sport_view_component_1 = require('./modules/sport/sport-view.component');
 var club_service_1 = require('./services/club/club.service');
-var sport_service_1 = require('./services/sport.service');
+var sport_service_1 = require('./services/sport/sport.service');
 var AppModule = (function () {
     function AppModule() {
     }

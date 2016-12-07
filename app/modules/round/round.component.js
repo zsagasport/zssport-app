@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var match_service_1 = require('../../services/match.service');
-var round_service_1 = require('../../services/round.service');
+var match_service_1 = require('../../services/match/match.service');
+var round_service_1 = require('../../services/round/round.service');
 var RoundComponent = (function () {
     function RoundComponent(roundService, matchService) {
         this.roundService = roundService;

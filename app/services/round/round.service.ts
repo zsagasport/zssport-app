@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { RoundModel } from '../models/round.model';
+import { RoundModel } from '../../models/round/round.model';
 
-import { ROUNDS } from '../mocks/mock-rounds';
+import { ROUNDS } from '../../mocks/mock-rounds';
 
 @Injectable()
 export class RoundService {

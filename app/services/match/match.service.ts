@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 
-import { MatchModel } from "../models/match.model";
+import { MatchModel } from "../../models/match/match.model";
 
-import { MATCHES } from "../mocks/mock-matches";
+import { MATCHES } from "../../mocks/mock-matches";
 
 @Injectable()
 export class MatchService {

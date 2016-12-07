@@ -20,41 +20,41 @@ require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
 var base_service_1 = require("../base.service");
 var configuration_1 = require("../util/configuration");
-var ClubService = (function (_super) {
-    __extends(ClubService, _super);
-    function ClubService(http) {
+var SportService = (function (_super) {
+    __extends(SportService, _super);
+    function SportService(http) {
         _super.call(this, new configuration_1.Configuration());
         this.http = http;
-        this.actionUrl = this.configuration.serverWithApiUrl + 'club';
+        this.actionUrl = this.configuration.serverWithApiUrl + 'sport';
         this.headers = new http_1.Headers();
         this.headers.append('Content-Type', 'application/json');
         this.headers.append('Accept', 'application/json');
     }
-    ClubService.prototype.add = function (baseModel) {
+    SportService.prototype.add = function (baseModel) {
         var toAdd = baseModel.stringify();
         return this.http.post(this.actionUrl, toAdd, { headers: this.headers })
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    ClubService.prototype.getAll = function () {
+    SportService.prototype.getAll = function () {
         return this.http.get(this.actionUrl)
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    ClubService.prototype.getById = function (id) {
+    SportService.prototype.getById = function (id) {
         return this.http.get(this.actionUrl + '/:id' + id)
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    ClubService.prototype.handleError = function (error) {
+    SportService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');
     };
-    ClubService = __decorate([
+    SportService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], ClubService);
-    return ClubService;
+    ], SportService);
+    return SportService;
 }(base_service_1.BaseService));
-exports.ClubService = ClubService;
-//# sourceMappingURL=club.service.js.map
+exports.SportService = SportService;
+//# sourceMappingURL=sport.service.js.map

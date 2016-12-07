@@ -9,7 +9,7 @@ import { AppRoutingModule }     from './app-routing.module';
 import { ClubViewComponent }    from './modules/club/club-view.component';
 import { SportViewComponent }   from './modules/sport/sport-view.component';
 import { ClubService }          from './services/club/club.service';
-import { SportService }         from './services/sport.service';
+import { SportService }         from './services/sport/sport.service';
 
 
 @NgModule({

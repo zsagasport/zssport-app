@@ -8,29 +8,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var mock_matches_1 = require("../mocks/mock-matches");
-var MatchService = (function () {
-    function MatchService() {
+var core_1 = require('@angular/core');
+var mock_rounds_1 = require('../../mocks/mock-rounds');
+var RoundService = (function () {
+    function RoundService() {
     }
-    MatchService.prototype.getMatch = function (matchId) {
-        return Promise.resolve(mock_matches_1.MATCHES.filter(function (match) {
-            return matchId == match.id;
+    RoundService.prototype.getRound = function (roundId) {
+        return Promise.resolve(mock_rounds_1.ROUNDS.filter(function (round) {
+            return roundId == round.id;
         })[0]);
     };
-    MatchService.prototype.getMatches = function () {
-        return Promise.resolve(mock_matches_1.MATCHES);
+    RoundService.prototype.getRounds = function () {
+        return Promise.resolve(mock_rounds_1.ROUNDS);
     };
-    MatchService.prototype.getMatchesByRound = function (round) {
-        return Promise.resolve(mock_matches_1.MATCHES.filter(function (match) {
-            return round == match.round;
-        }));
-    };
-    MatchService = __decorate([
+    RoundService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], MatchService);
-    return MatchService;
+    ], RoundService);
+    return RoundService;
 }());
-exports.MatchService = MatchService;
-//# sourceMappingURL=match.service.js.map
+exports.RoundService = RoundService;
+//# sourceMappingURL=round.service.js.map

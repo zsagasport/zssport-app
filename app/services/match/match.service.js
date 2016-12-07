@@ -9,14 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var SportService = (function () {
-    function SportService() {
+var mock_matches_1 = require("../../mocks/mock-matches");
+var MatchService = (function () {
+    function MatchService() {
     }
-    SportService = __decorate([
+    MatchService.prototype.getMatch = function (matchId) {
+        return Promise.resolve(mock_matches_1.MATCHES.filter(function (match) {
+            return matchId == match.id;
+        })[0]);
+    };
+    MatchService.prototype.getMatches = function () {
+        return Promise.resolve(mock_matches_1.MATCHES);
+    };
+    MatchService.prototype.getMatchesByRound = function (round) {
+        return Promise.resolve(mock_matches_1.MATCHES.filter(function (match) {
+            return round == match.round;
+        }));
+    };
+    MatchService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], SportService);
-    return SportService;
+    ], MatchService);
+    return MatchService;
 }());
-exports.SportService = SportService;
-//# sourceMappingURL=sport.service.js.map
+exports.MatchService = MatchService;
+//# sourceMappingURL=match.service.js.map
