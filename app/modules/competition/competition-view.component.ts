@@ -4,6 +4,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CompetitionModel } from "../../models/competition/competition.model";
 import { CompetitionService } from "../../services/competition/competition.service";
 
+import { SeasonModel } from "../../models/season/season.model";
+import { SeasonService } from "../../services/season/season.service";
+
 import { SportModel } from "../../models/sport/sport.model";
 import { SportService } from "../../services/sport/sport.service";
 
@@ -28,17 +31,19 @@ export class CompetitionViewComponent implements OnInit {
 
     constructor(
         private competitionService: CompetitionService,
+        private seasonService: SeasonService,
         private sportService: SportService,
         private formBuilder: FormBuilder) {}
 
     ngOnInit() {
         this.getAllItems();
         this.getSports();
+        this.getSeasons();
 
         this.myForm = this.formBuilder.group({
             country: ['', [Validators.required]],
-            season: ['', [Validators.required]],
-            sport: ['', [Validators.required]],
+            seasonId: ['', [Validators.required]],
+            sportId: ['', [Validators.required]],
             title: ['', [Validators.required]]
         });
     }
@@ -49,6 +54,14 @@ export class CompetitionViewComponent implements OnInit {
             .subscribe((data:Array<CompetitionModel>) => this.competitions = data,
                 error => console.log(error),
                 () => console.log('Get all Items complete'));
+    }
+
+     private getSeasons(): void {
+        this.seasonService
+            .getAll()
+            .subscribe((data:Array<SeasonModel>) => this.seasons = data,
+                error => console.log(error),
+                () => console.log('Get season Items complete'));
     }
 
     private getSports(): void {

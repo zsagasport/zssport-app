@@ -22,10 +22,10 @@
 
              <div class="form-group">
                 <label>Sport</label>
-                <select class="form-control" formControlName="sport">
-                     <option *ngFor="let sport of sports" [value]="sport.id">{{sport.title}}</option>
+                <select class="form-control" formControlName="sportId">
+                     <option *ngFor="let sport of sports" [value]="sport._id">{{sport.title}}</option>
                 </select>
-                <small *ngIf="!myForm.controls.sport.valid" class="text-danger">
+                <small *ngIf="!myForm.controls.sportId.valid" class="text-danger">
                     Sport is required.
                 </small>
             </div>
@@ -42,10 +42,10 @@
 
             <div class="form-group">
                 <label>Season</label>
-                <select class="form-control" formControlName="season">
-                     <option *ngFor="let season of seasons" [value]="season.id">{{season.title}}</option>
+                <select class="form-control" formControlName="seasonId">
+                     <option *ngFor="let season of seasons" [value]="season._id">{{season.title}}</option>
                 </select>
-                <small *ngIf="!myForm.controls.season.valid" class="text-danger">
+                <small *ngIf="!myForm.controls.seasonId.valid" class="text-danger">
                     Season is required.
                 </small>
             </div>

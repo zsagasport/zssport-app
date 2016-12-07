@@ -11,6 +11,10 @@ app.get('/', function (request, response) {
 });
 var clubRouter = require('./app/routers/club/club.router');
 app.use('/club', clubRouter);
+var competitionRouter = require('./app/routers/competition/competition.router');
+app.use('/competition', competitionRouter);
+var seasonRouter = require('./app/routers/season/season.router');
+app.use('/season', seasonRouter);
 var sportRouter = require('./app/routers/sport/sport.router');
 app.use('/sport', sportRouter);
 var matchRouter = require('./app/routers/match/match.router');

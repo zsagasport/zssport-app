@@ -12,10 +12,12 @@ var core_1 = require("@angular/core");
 var forms_1 = require('@angular/forms');
 var competition_model_1 = require("../../models/competition/competition.model");
 var competition_service_1 = require("../../services/competition/competition.service");
+var season_service_1 = require("../../services/season/season.service");
 var sport_service_1 = require("../../services/sport/sport.service");
 var CompetitionViewComponent = (function () {
-    function CompetitionViewComponent(competitionService, sportService, formBuilder) {
+    function CompetitionViewComponent(competitionService, seasonService, sportService, formBuilder) {
         this.competitionService = competitionService;
+        this.seasonService = seasonService;
         this.sportService = sportService;
         this.formBuilder = formBuilder;
         this.countries = ["Hungary", "UK"];
@@ -24,10 +26,11 @@ var CompetitionViewComponent = (function () {
     CompetitionViewComponent.prototype.ngOnInit = function () {
         this.getAllItems();
         this.getSports();
+        this.getSeasons();
         this.myForm = this.formBuilder.group({
             country: ['', [forms_1.Validators.required]],
-            season: ['', [forms_1.Validators.required]],
-            sport: ['', [forms_1.Validators.required]],
+            seasonId: ['', [forms_1.Validators.required]],
+            sportId: ['', [forms_1.Validators.required]],
             title: ['', [forms_1.Validators.required]]
         });
     };
@@ -36,6 +39,12 @@ var CompetitionViewComponent = (function () {
         this.competitionService
             .getAll()
             .subscribe(function (data) { return _this.competitions = data; }, function (error) { return console.log(error); }, function () { return console.log('Get all Items complete'); });
+    };
+    CompetitionViewComponent.prototype.getSeasons = function () {
+        var _this = this;
+        this.seasonService
+            .getAll()
+            .subscribe(function (data) { return _this.seasons = data; }, function (error) { return console.log(error); }, function () { return console.log('Get season Items complete'); });
     };
     CompetitionViewComponent.prototype.getSports = function () {
         var _this = this;
@@ -57,7 +66,7 @@ var CompetitionViewComponent = (function () {
             selector: 'zssport-competitionview',
             templateUrl: 'competition-view.component.html',
         }), 
-        __metadata('design:paramtypes', [competition_service_1.CompetitionService, sport_service_1.SportService, forms_1.FormBuilder])
+        __metadata('design:paramtypes', [competition_service_1.CompetitionService, season_service_1.SeasonService, sport_service_1.SportService, forms_1.FormBuilder])
     ], CompetitionViewComponent);
     return CompetitionViewComponent;
 }());

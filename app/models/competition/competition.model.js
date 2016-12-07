@@ -10,6 +10,9 @@ var CompetitionModel = (function (_super) {
     function CompetitionModel(id, country, seasonId, sportId, title) {
         if (id === void 0) { id = 0; }
         _super.call(this, id);
+        this.country = country;
+        this.seasonId = seasonId;
+        this.sportId = sportId;
         this.title = title;
     }
     CompetitionModel.prototype.stringify = function () {

@@ -9,6 +9,9 @@ export class CompetitionModel extends BaseModel {
     constructor(id: number = 0, country: string, seasonId: number, sportId: number, title: string) {
         super(id);
 
+        this.country = country;
+        this.seasonId = seasonId;
+        this.sportId = sportId;
         this.title = title;
     }
 
