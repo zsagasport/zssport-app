@@ -44,7 +44,8 @@ router.post('/', function(request, response) {
             } else {
                 response.end();
             }
-	});
+	    }
+    );
 });
 
 module.exports = router;
