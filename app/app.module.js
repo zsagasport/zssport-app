@@ -16,12 +16,16 @@ var angular_2_data_table_1 = require('angular-2-data-table');
 var app_component_1 = require('./app.component');
 var app_routing_module_1 = require('./app-routing.module');
 var club_view_component_1 = require('./modules/club/club-view.component');
+var club_datatable_component_1 = require('./modules/club/club.datatable.component');
+var competition_datatable_component_1 = require('./modules/competition/competition.datatable.component');
 var competition_view_component_1 = require('./modules/competition/competition-view.component');
 var season_view_component_1 = require('./modules/season/season-view.component');
 var sport_view_component_1 = require('./modules/sport/sport-view.component');
 var club_service_1 = require('./services/club/club.service');
 var competition_service_1 = require('./services/competition/competition.service');
+var sport_datatable_component_1 = require("./modules/sport/sport.datatable.component");
 var sport_service_1 = require('./services/sport/sport.service');
+var season_datatable_component_1 = require('./modules/season/season.datatable.component');
 var season_service_1 = require('./services/season/season.service');
 var AppModule = (function () {
     function AppModule() {
@@ -39,8 +43,12 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 club_view_component_1.ClubViewComponent,
+                club_datatable_component_1.ClubDataTableComponent,
+                competition_datatable_component_1.CompetitionDataTableComponent,
                 competition_view_component_1.CompetitionViewComponent,
+                season_datatable_component_1.SeasonDataTableComponent,
                 season_view_component_1.SeasonViewComponent,
+                sport_datatable_component_1.SportDataTableComponent,
                 sport_view_component_1.SportViewComponent
             ],
             providers: [

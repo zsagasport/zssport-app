@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { DataTable, DataTableTranslations, DataTableResource } from 'angular-2-data-table';
 
+import { SportDataTableComponent } from "./sport.datatable.component";
 import { SportModel } from "../../models/sport/sport.model";
 import { SportService } from "../../services/sport/sport.service";
 
@@ -13,34 +14,16 @@ import { SportService } from "../../services/sport/sport.service";
 })
 
 export class SportViewComponent implements OnInit {
-    items: Array<SportModel> = [];
-
-    itemCount = 0;
 
     myForm: FormGroup;
 
     title: string = "Sport View";
 
-     constructor(private sportService: SportService, private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {}
 
-     ngOnInit() {
-        this.getAllItems();
-
+    ngOnInit() {
         this.myForm = this.formBuilder.group({
             title: ['', [Validators.required]]
         });
     }
- 
-    private getAllItems(): void {
-        this.sportService
-            .getAll()
-            .subscribe(
-                (data:Array<SportModel>) => {
-                    this.items = data;
-                    this.itemCount = data.length;
-                },
-                error => console.log(error),
-                () => console.log('Get all Items complete'));
-    }
-
 }

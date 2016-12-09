@@ -1,0 +1,27 @@
+<data-table id="seasonTable"
+    headerTitle="{{title}}"
+    [items]="items"
+    [itemCount]="itemCount"
+    (reload)="reloadItems($event)">
+
+    <data-table-column
+        [property]="'title'"
+        [header]="'Title'"
+        [sortable]="true"
+        [resizable]="true">
+    </data-table-column>
+
+    <data-table-column
+        [property]="'start'"
+        [header]="'Start'"
+        [sortable]="true"
+        [resizable]="true">
+    </data-table-column>
+
+    <data-table-column
+        [property]="'end'"
+        [header]="'End'"
+        [sortable]="true"
+        [resizable]="true">
+    </data-table-column>
+</data-table>

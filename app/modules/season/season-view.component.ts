@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { DataTable, DataTableTranslations, DataTableResource } from 'angular-2-data-table';
+import { DataTable, DataTableResource } from 'angular-2-data-table';
 
+import { SeasonDataTableComponent } from "./season.datatable.component";
 import { SeasonModel } from "../../models/season/season.model";
 import { SeasonService } from "../../services/season/season.service";
 
@@ -14,10 +15,6 @@ import { SeasonService } from "../../services/season/season.service";
 
 export class SeasonViewComponent implements OnInit {
 
-    items: Array<SeasonModel> = [];
-
-    itemCount: number = 0;
-
     myForm: FormGroup;
 
     title: string = "Season View";
@@ -25,26 +22,11 @@ export class SeasonViewComponent implements OnInit {
     constructor(private seasonService: SeasonService, private formBuilder: FormBuilder) {}
 
     ngOnInit() {
-        this.getAllItems();
-
         this.myForm = this.formBuilder.group({
             end: ['', [Validators.required]],
             start: ['', [Validators.required]],
             title: ['', [Validators.required]]
         });
-    }
- 
-    private getAllItems(): void {
-        this.seasonService
-            .getAll()
-            .subscribe(
-                (data:Array<SeasonModel>) => {
-                    this.items = data;
-                    this.itemCount = data.length;
-                },
-                error => console.log(error),
-                () => console.log('Get all Items complete')
-            );
     }
 
     private save(seasonModel: SeasonModel) {
@@ -52,7 +34,9 @@ export class SeasonViewComponent implements OnInit {
 
         this.seasonService
             .add(season)
-            .subscribe((data:SeasonModel) => this.items.push(data),
+            .subscribe(
+                (data:SeasonModel) => {
+                },
              error => console.log(error),
                 () => console.log('Get all Items complete'));
 

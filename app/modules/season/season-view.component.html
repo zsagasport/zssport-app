@@ -1,32 +1,8 @@
 <div class="season-view bordered">    
     <h1>{{title}}</h1>
     <div class="col-md-6">
-       <data-table id="seasonTable"
-            headerTitle="Seasons"
-            [items]="items"
-            [itemCount]="itemCount">
-
-            <data-table-column
-                [property]="'title'"
-                [header]="'Title'"
-                [sortable]="true"
-                [resizable]="true">
-            </data-table-column>
-
-            <data-table-column
-                [property]="'start'"
-                [header]="'Start'"
-                [sortable]="true"
-                [resizable]="true">
-            </data-table-column>
-
-            <data-table-column
-                [property]="'end'"
-                [header]="'End'"
-                [sortable]="true"
-                [resizable]="true">
-            </data-table-column>
-        </data-table>
+        <season-datatable>
+        </season-datatable>
     </div>
     <div class="col-md-6">
         <h2>Add season</h2>

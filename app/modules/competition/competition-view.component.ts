@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { DataTable, DataTableTranslations, DataTableResource } from 'angular-2-data-table';
 
+import { CompetitionDataTableComponent } from "./competition.datatable.component";
 import { CompetitionModel } from "../../models/competition/competition.model";
 import { CompetitionService } from "../../services/competition/competition.service";
 
@@ -21,10 +22,6 @@ import { SportService } from "../../services/sport/sport.service";
 export class CompetitionViewComponent implements OnInit {
     countries: Array<String> = ["Hungary", "UK"];
 
-    items: Array<CompetitionModel> = [];
-
-    itemCount: number = 0;
-
     myForm: FormGroup;
 
     seasons: Array<Object>;
@@ -34,13 +31,11 @@ export class CompetitionViewComponent implements OnInit {
     title: string = "Competition View";
 
     constructor(
-        private competitionService: CompetitionService,
         private seasonService: SeasonService,
         private sportService: SportService,
         private formBuilder: FormBuilder) {}
 
     ngOnInit() {
-        this.getAllItems();
         this.getSports();
         this.getSeasons();
 
@@ -50,18 +45,6 @@ export class CompetitionViewComponent implements OnInit {
             sportId: ['', [Validators.required]],
             title: ['', [Validators.required]]
         });
-    }
- 
-    private getAllItems(): void {
-        this.competitionService
-            .getAll()
-            .subscribe(
-                (data:Array<CompetitionModel>) => {
-                    this.items = data;
-                    this.itemCount = data.length;
-                },
-                error => console.log(error),
-                () => console.log('Get all Items complete'));
     }
 
      private getSeasons(): void {
@@ -85,9 +68,12 @@ export class CompetitionViewComponent implements OnInit {
 
         this.competitionService
             .add(competition)
-            .subscribe((data:CompetitionModel) => this.items.push(data),
-             error => console.log(error),
-                () => console.log('Get all Items complete'));
+            .subscribe(
+                (data:CompetitionModel) => {
+                },
+                error => console.log(error),
+                () => console.log('Get all Items complete')
+            );
 
         console.log(competition);
     }

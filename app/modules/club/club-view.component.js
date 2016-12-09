@@ -10,39 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var forms_1 = require('@angular/forms');
-var angular_2_data_table_1 = require('angular-2-data-table');
 var club_model_1 = require("../../models/club/club.model");
 var club_service_1 = require("../../services/club/club.service");
 var ClubViewComponent = (function () {
     function ClubViewComponent(clubService, formBuilder) {
         this.clubService = clubService;
         this.formBuilder = formBuilder;
-        this.items = [];
-        this.itemCount = 0;
-        this.itemResource = new angular_2_data_table_1.DataTableResource([]);
+        this.clubs = [];
         this.title = "Club View";
     }
     ClubViewComponent.prototype.ngOnInit = function () {
-        this.getAllItems();
         this.myForm = this.formBuilder.group({
             title: ['', [forms_1.Validators.required]]
         });
-    };
-    ClubViewComponent.prototype.reloadItems = function (params) {
-        var _this = this;
-        this.itemResource.query(params).then(function (result) {
-            _this.items = result;
-        });
-    };
-    ClubViewComponent.prototype.getAllItems = function () {
-        var _this = this;
-        this.clubService
-            .getAll()
-            .subscribe(function (data) {
-            _this.itemResource = new angular_2_data_table_1.DataTableResource(data);
-            _this.itemCount = data.length;
-            _this.reloadItems({ "offset": 0, "limit": 10 });
-        }, function (error) { return console.log(error); }, function () { return console.log('Get all Items complete'); });
     };
     ClubViewComponent.prototype.save = function (clubModel) {
         var club = new club_model_1.ClubModel(clubModel.id, clubModel.title);

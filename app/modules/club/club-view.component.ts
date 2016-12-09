@@ -5,6 +5,7 @@ import { DataTable, DataTableTranslations, DataTableResource } from 'angular-2-d
 
 import { ClubModel } from "../../models/club/club.model";
 import { ClubService } from "../../services/club/club.service";
+import { ClubDataTableComponent } from "./club.datatable.component";
 
 @Component({
      moduleId: module.id,
@@ -14,11 +15,7 @@ import { ClubService } from "../../services/club/club.service";
 
 export class ClubViewComponent implements OnInit {
 
-    items: Array<ClubModel> = [];
-
-    itemCount: number = 0;
-
-    itemResource: DataTableResource<ClubModel> = new DataTableResource([]);
+    clubs: Array<ClubModel> = [];
 
     myForm: FormGroup;
 
@@ -27,35 +24,11 @@ export class ClubViewComponent implements OnInit {
     constructor(private clubService: ClubService, private formBuilder: FormBuilder) {}
 
     ngOnInit() {
-        this.getAllItems();
-
         this.myForm = this.formBuilder.group({
             title: ['', [Validators.required]]
         });
     }
-
-     reloadItems(params) {
-        this.itemResource.query(params).then(result => {
-            this.items = result;
-        });
-    }
  
-    private getAllItems(): void {
-        this.clubService
-            .getAll()
-            .subscribe(
-                (data:Array<ClubModel>) => {
-                    this.itemResource = new DataTableResource(data);
-
-                    this.itemCount = data.length;
-
-                    this.reloadItems({"offset": 0, "limit": 10});
-                },
-                error => console.log(error),
-                () => console.log('Get all Items complete')
-            );
-    }
-
     private save(clubModel: ClubModel) {
         let club = new ClubModel(clubModel.id, clubModel.title);
 
