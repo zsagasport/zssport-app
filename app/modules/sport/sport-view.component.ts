@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { DataTable, DataTableTranslations, DataTableResource } from 'angular-2-data-table';
+
 import { SportModel } from "../../models/sport/sport.model";
 import { SportService } from "../../services/sport/sport.service";
 
@@ -11,10 +13,11 @@ import { SportService } from "../../services/sport/sport.service";
 })
 
 export class SportViewComponent implements OnInit {
+    items: Array<SportModel> = [];
+
+    itemCount = 0;
 
     myForm: FormGroup;
-
-    sports: Array<SportModel>;
 
     title: string = "Sport View";
 
@@ -31,7 +34,11 @@ export class SportViewComponent implements OnInit {
     private getAllItems(): void {
         this.sportService
             .getAll()
-            .subscribe((data:Array<SportModel>) => this.sports = data,
+            .subscribe(
+                (data:Array<SportModel>) => {
+                    this.items = data;
+                    this.itemCount = data.length;
+                },
                 error => console.log(error),
                 () => console.log('Get all Items complete'));
     }

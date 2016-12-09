@@ -4,6 +4,8 @@ import { HttpModule }           from '@angular/http';
 import { FormsModule,
         ReactiveFormsModule }   from '@angular/forms';
 
+import { DataTableModule }      from 'angular-2-data-table';
+
 import { AppComponent }         from './app.component';
 import { AppRoutingModule }     from './app-routing.module';
 import { ClubViewComponent }    from './modules/club/club-view.component';
@@ -19,6 +21,7 @@ import { SeasonService }         from './services/season/season.service';
   imports:      [ 
     AppRoutingModule,
     BrowserModule,
+    DataTableModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule

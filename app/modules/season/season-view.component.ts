@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { DataTable, DataTableTranslations, DataTableResource } from 'angular-2-data-table';
+
 import { SeasonModel } from "../../models/season/season.model";
 import { SeasonService } from "../../services/season/season.service";
 
@@ -12,7 +14,9 @@ import { SeasonService } from "../../services/season/season.service";
 
 export class SeasonViewComponent implements OnInit {
 
-    seasons: Array<SeasonModel>;
+    items: Array<SeasonModel> = [];
+
+    itemCount: number = 0;
 
     myForm: FormGroup;
 
@@ -33,7 +37,11 @@ export class SeasonViewComponent implements OnInit {
     private getAllItems(): void {
         this.seasonService
             .getAll()
-            .subscribe((data:Array<SeasonModel>) => this.seasons = data,
+            .subscribe(
+                (data:Array<SeasonModel>) => {
+                    this.items = data;
+                    this.itemCount = data.length;
+                },
                 error => console.log(error),
                 () => console.log('Get all Items complete')
             );
@@ -44,7 +52,7 @@ export class SeasonViewComponent implements OnInit {
 
         this.seasonService
             .add(season)
-            .subscribe((data:SeasonModel) => this.seasons.push(data),
+            .subscribe((data:SeasonModel) => this.items.push(data),
              error => console.log(error),
                 () => console.log('Get all Items complete'));
 

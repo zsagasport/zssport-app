@@ -15,6 +15,8 @@ var SportViewComponent = (function () {
     function SportViewComponent(sportService, formBuilder) {
         this.sportService = sportService;
         this.formBuilder = formBuilder;
+        this.items = [];
+        this.itemCount = 0;
         this.title = "Sport View";
     }
     SportViewComponent.prototype.ngOnInit = function () {
@@ -27,7 +29,10 @@ var SportViewComponent = (function () {
         var _this = this;
         this.sportService
             .getAll()
-            .subscribe(function (data) { return _this.sports = data; }, function (error) { return console.log(error); }, function () { return console.log('Get all Items complete'); });
+            .subscribe(function (data) {
+            _this.items = data;
+            _this.itemCount = data.length;
+        }, function (error) { return console.log(error); }, function () { return console.log('Get all Items complete'); });
     };
     SportViewComponent = __decorate([
         core_1.Component({

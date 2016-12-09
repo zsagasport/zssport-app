@@ -16,6 +16,8 @@ var SeasonViewComponent = (function () {
     function SeasonViewComponent(seasonService, formBuilder) {
         this.seasonService = seasonService;
         this.formBuilder = formBuilder;
+        this.items = [];
+        this.itemCount = 0;
         this.title = "Season View";
     }
     SeasonViewComponent.prototype.ngOnInit = function () {
@@ -30,14 +32,17 @@ var SeasonViewComponent = (function () {
         var _this = this;
         this.seasonService
             .getAll()
-            .subscribe(function (data) { return _this.seasons = data; }, function (error) { return console.log(error); }, function () { return console.log('Get all Items complete'); });
+            .subscribe(function (data) {
+            _this.items = data;
+            _this.itemCount = data.length;
+        }, function (error) { return console.log(error); }, function () { return console.log('Get all Items complete'); });
     };
     SeasonViewComponent.prototype.save = function (seasonModel) {
         var _this = this;
         var season = new season_model_1.SeasonModel(seasonModel.id, seasonModel.end, seasonModel.start, seasonModel.title);
         this.seasonService
             .add(season)
-            .subscribe(function (data) { return _this.seasons.push(data); }, function (error) { return console.log(error); }, function () { return console.log('Get all Items complete'); });
+            .subscribe(function (data) { return _this.items.push(data); }, function (error) { return console.log(error); }, function () { return console.log('Get all Items complete'); });
         console.log(season);
     };
     SeasonViewComponent = __decorate([

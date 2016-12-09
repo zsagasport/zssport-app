@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { DataTable, DataTableTranslations, DataTableResource } from 'angular-2-data-table';
+
 import { ClubModel } from "../../models/club/club.model";
 import { ClubService } from "../../services/club/club.service";
 
@@ -12,7 +14,11 @@ import { ClubService } from "../../services/club/club.service";
 
 export class ClubViewComponent implements OnInit {
 
-    clubs: Array<ClubModel>;
+    items: Array<ClubModel> = [];
+
+    itemCount: number = 0;
+
+    itemResource: DataTableResource<ClubModel> = new DataTableResource([]);
 
     myForm: FormGroup;
 
@@ -27,13 +33,27 @@ export class ClubViewComponent implements OnInit {
             title: ['', [Validators.required]]
         });
     }
+
+     reloadItems(params) {
+        this.itemResource.query(params).then(result => {
+            this.items = result;
+        });
+    }
  
     private getAllItems(): void {
         this.clubService
             .getAll()
-            .subscribe((data:Array<ClubModel>) => this.clubs = data,
+            .subscribe(
+                (data:Array<ClubModel>) => {
+                    this.itemResource = new DataTableResource(data);
+
+                    this.itemCount = data.length;
+
+                    this.reloadItems({"offset": 0, "limit": 10});
+                },
                 error => console.log(error),
-                () => console.log('Get all Items complete'));
+                () => console.log('Get all Items complete')
+            );
     }
 
     private save(clubModel: ClubModel) {
@@ -41,7 +61,10 @@ export class ClubViewComponent implements OnInit {
 
         this.clubService
             .add(club)
-            .subscribe((data:ClubModel) => this.clubs.push(data),
+            .subscribe(
+                (data:ClubModel) => 
+                {
+                },
              error => console.log(error),
                 () => console.log('Get all Items complete'));
 

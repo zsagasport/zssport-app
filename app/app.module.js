@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
 var forms_1 = require('@angular/forms');
+var angular_2_data_table_1 = require('angular-2-data-table');
 var app_component_1 = require('./app.component');
 var app_routing_module_1 = require('./app-routing.module');
 var club_view_component_1 = require('./modules/club/club-view.component');
@@ -30,6 +31,7 @@ var AppModule = (function () {
             imports: [
                 app_routing_module_1.AppRoutingModule,
                 platform_browser_1.BrowserModule,
+                angular_2_data_table_1.DataTableModule,
                 forms_1.FormsModule,
                 http_1.HttpModule,
                 forms_1.ReactiveFormsModule

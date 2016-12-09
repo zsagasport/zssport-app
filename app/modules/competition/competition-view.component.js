@@ -21,6 +21,8 @@ var CompetitionViewComponent = (function () {
         this.sportService = sportService;
         this.formBuilder = formBuilder;
         this.countries = ["Hungary", "UK"];
+        this.items = [];
+        this.itemCount = 0;
         this.title = "Competition View";
     }
     CompetitionViewComponent.prototype.ngOnInit = function () {
@@ -38,7 +40,10 @@ var CompetitionViewComponent = (function () {
         var _this = this;
         this.competitionService
             .getAll()
-            .subscribe(function (data) { return _this.competitions = data; }, function (error) { return console.log(error); }, function () { return console.log('Get all Items complete'); });
+            .subscribe(function (data) {
+            _this.items = data;
+            _this.itemCount = data.length;
+        }, function (error) { return console.log(error); }, function () { return console.log('Get all Items complete'); });
     };
     CompetitionViewComponent.prototype.getSeasons = function () {
         var _this = this;
@@ -57,7 +62,7 @@ var CompetitionViewComponent = (function () {
         var competition = new competition_model_1.CompetitionModel(competitionModel.id, competitionModel.country, competitionModel.seasonId, competitionModel.sportId, competitionModel.title);
         this.competitionService
             .add(competition)
-            .subscribe(function (data) { return _this.competitions.push(data); }, function (error) { return console.log(error); }, function () { return console.log('Get all Items complete'); });
+            .subscribe(function (data) { return _this.items.push(data); }, function (error) { return console.log(error); }, function () { return console.log('Get all Items complete'); });
         console.log(competition);
     };
     CompetitionViewComponent = __decorate([

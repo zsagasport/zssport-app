@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { DataTable, DataTableTranslations, DataTableResource } from 'angular-2-data-table';
+
 import { CompetitionModel } from "../../models/competition/competition.model";
 import { CompetitionService } from "../../services/competition/competition.service";
 
@@ -19,7 +21,9 @@ import { SportService } from "../../services/sport/sport.service";
 export class CompetitionViewComponent implements OnInit {
     countries: Array<String> = ["Hungary", "UK"];
 
-    competitions: Array<CompetitionModel>;
+    items: Array<CompetitionModel> = [];
+
+    itemCount: number = 0;
 
     myForm: FormGroup;
 
@@ -51,7 +55,11 @@ export class CompetitionViewComponent implements OnInit {
     private getAllItems(): void {
         this.competitionService
             .getAll()
-            .subscribe((data:Array<CompetitionModel>) => this.competitions = data,
+            .subscribe(
+                (data:Array<CompetitionModel>) => {
+                    this.items = data;
+                    this.itemCount = data.length;
+                },
                 error => console.log(error),
                 () => console.log('Get all Items complete'));
     }
@@ -77,7 +85,7 @@ export class CompetitionViewComponent implements OnInit {
 
         this.competitionService
             .add(competition)
-            .subscribe((data:CompetitionModel) => this.competitions.push(data),
+            .subscribe((data:CompetitionModel) => this.items.push(data),
              error => console.log(error),
                 () => console.log('Get all Items complete'));
 

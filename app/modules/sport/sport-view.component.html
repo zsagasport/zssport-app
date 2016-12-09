@@ -1,12 +1,18 @@
 <div class="club-view bordered">
     <h1>{{title}}</h1>
      <div class="col-md-6">
-        <h2>Sport list</h2>
-        <ul>
-            <li *ngFor="let sport of sports">
-                {{sport.title}}
-            </li>
-        </ul>
+        <data-table id="sportTable"
+            headerTitle="Sport categories"
+            [items]="items"
+            [itemCount]="itemCount">
+
+            <data-table-column
+                [property]="'title'"
+                [header]="'Title'"
+                [sortable]="true"
+                [resizable]="true">
+            </data-table-column>
+        </data-table>
     </div>
     <div class="col-md-6">
        

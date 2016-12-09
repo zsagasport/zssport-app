@@ -25,6 +25,7 @@
       'cors':                       'npm:cors',
       'rxjs':                       'npm:rxjs',
       'angular-in-memory-web-api':  'npm:angular-in-memory-web-api',
+      'angular-2-data-table':       'npm:angular-2-data-table'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -42,6 +43,10 @@
       'angular-in-memory-web-api': {
         main: './index.js',
         defaultExtension: 'js'
+      },
+      'angular-2-data-table': {
+          main: './dist/index.js',
+          defaultExtension: 'js'
       }
     }
   });
