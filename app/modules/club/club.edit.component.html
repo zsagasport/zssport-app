@@ -1,0 +1,13 @@
+ <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)">
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" formControlName="title">
+        <small *ngIf="!myForm.controls.title.valid" class="text-danger">
+            Title is required.
+        </small>
+    </div>
+
+    <div class="margin-20">
+        <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
+    </div>
+</form>

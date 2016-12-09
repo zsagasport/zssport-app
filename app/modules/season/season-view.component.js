@@ -9,29 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var forms_1 = require('@angular/forms');
-var season_model_1 = require("../../models/season/season.model");
-var season_service_1 = require("../../services/season/season.service");
 var SeasonViewComponent = (function () {
-    function SeasonViewComponent(seasonService, formBuilder) {
-        this.seasonService = seasonService;
-        this.formBuilder = formBuilder;
+    function SeasonViewComponent() {
         this.title = "Season View";
     }
     SeasonViewComponent.prototype.ngOnInit = function () {
-        this.myForm = this.formBuilder.group({
-            end: ['', [forms_1.Validators.required]],
-            start: ['', [forms_1.Validators.required]],
-            title: ['', [forms_1.Validators.required]]
-        });
-    };
-    SeasonViewComponent.prototype.save = function (seasonModel) {
-        var season = new season_model_1.SeasonModel(seasonModel.id, seasonModel.end, seasonModel.start, seasonModel.title);
-        this.seasonService
-            .add(season)
-            .subscribe(function (data) {
-        }, function (error) { return console.log(error); }, function () { return console.log('Get all Items complete'); });
-        console.log(season);
     };
     SeasonViewComponent = __decorate([
         core_1.Component({
@@ -39,7 +21,7 @@ var SeasonViewComponent = (function () {
             selector: 'zssport-seasonview',
             templateUrl: 'season-view.component.html',
         }), 
-        __metadata('design:paramtypes', [season_service_1.SeasonService, forms_1.FormBuilder])
+        __metadata('design:paramtypes', [])
     ], SeasonViewComponent);
     return SeasonViewComponent;
 }());

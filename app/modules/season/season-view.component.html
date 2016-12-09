@@ -7,34 +7,7 @@
     <div class="col-md-6">
         <h2>Add season</h2>
       
-        <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)">
-            <div class="form-group">
-                <label>Title</label>
-                <input type="text" class="form-control" formControlName="title">
-                <small *ngIf="!myForm.controls.title.valid" class="text-danger">
-                    Title is required.
-                </small>
-            </div>
-
-            <div class="form-group">
-                <label>Start</label>
-                <input type="text" class="form-control" formControlName="start">
-                <small *ngIf="!myForm.controls.start.valid" class="text-danger">
-                    Start is required.
-                </small>
-            </div>
-
-             <div class="form-group">
-                <label>End</label>
-                <input type="text" class="form-control" formControlName="end">
-                <small *ngIf="!myForm.controls.end.valid" class="text-danger">
-                    End is required.
-                </small>
-            </div>
-
-            <div class="margin-20">
-                <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
-            </div>
-        </form>
+        <season-edit>
+        </season-edit>
     </div>
 </div>

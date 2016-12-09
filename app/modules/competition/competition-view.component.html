@@ -7,48 +7,7 @@
     <div class="col-md-6">
         <h2>Add competition</h2>
       
-        <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)">
-            <div class="form-group">
-                <label>Title</label>
-                <input type="text" class="form-control" formControlName="title">
-                <small *ngIf="!myForm.controls.title.valid" class="text-danger">
-                    Title is required.
-                </small>
-            </div>
-
-             <div class="form-group">
-                <label>Sport</label>
-                <select class="form-control" formControlName="sportId">
-                     <option *ngFor="let sport of sports" [value]="sport._id">{{sport.title}}</option>
-                </select>
-                <small *ngIf="!myForm.controls.sportId.valid" class="text-danger">
-                    Sport is required.
-                </small>
-            </div>
-
-             <div class="form-group">
-                <label>Country</label>
-                <select class="form-control" formControlName="country">
-                     <option *ngFor="let country of countries" [value]="country">{{country}}</option>
-                </select>
-                <small *ngIf="!myForm.controls.country.valid" class="text-danger">
-                    Country is required.
-                </small>
-            </div>
-
-            <div class="form-group">
-                <label>Season</label>
-                <select class="form-control" formControlName="seasonId">
-                     <option *ngFor="let season of seasons" [value]="season._id">{{season.title}}</option>
-                </select>
-                <small *ngIf="!myForm.controls.seasonId.valid" class="text-danger">
-                    Season is required.
-                </small>
-            </div>
-
-            <div class="margin-20">
-                <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
-            </div>
-        </form>
+        <competition-edit>
+        </competition-edit>
     </div>
 </div>
