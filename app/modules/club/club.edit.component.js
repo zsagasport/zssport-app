@@ -17,15 +17,17 @@ var ClubEditComponent = (function () {
         this.clubService = clubService;
         this.formBuilder = formBuilder;
         this.clubs = [];
+        this.countries = ["Hungary", "UK"];
         this.title = "Club View";
     }
     ClubEditComponent.prototype.ngOnInit = function () {
         this.myForm = this.formBuilder.group({
+            country: ['', [forms_1.Validators.required]],
             title: ['', [forms_1.Validators.required]]
         });
     };
     ClubEditComponent.prototype.save = function (clubModel) {
-        var club = new club_model_1.ClubModel(clubModel.id, clubModel.title);
+        var club = new club_model_1.ClubModel(clubModel.id, clubModel.country, clubModel.title);
         this.clubService
             .add(club)
             .subscribe(function (data) {

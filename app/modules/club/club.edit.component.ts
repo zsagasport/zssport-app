@@ -13,6 +13,8 @@ import { ClubService } from "../../services/club/club.service";
 export class ClubEditComponent implements OnInit {
     clubs: Array<ClubModel> = [];
 
+    countries: Array<String> = ["Hungary", "UK"];
+
     myForm: FormGroup;
 
     title: string = "Club View";
@@ -21,12 +23,13 @@ export class ClubEditComponent implements OnInit {
 
     ngOnInit() {
         this.myForm = this.formBuilder.group({
+            country: ['', [Validators.required]],
             title: ['', [Validators.required]]
         });
     }
  
     private save(clubModel: ClubModel) {
-        let club = new ClubModel(clubModel.id, clubModel.title);
+        let club = new ClubModel(clubModel.id, clubModel.country, clubModel.title);
 
         this.clubService
             .add(club)

@@ -9,6 +9,7 @@ var clubs = db.get('club');
 
 var createClub = function(body) {
     return {
+        country: body.country,
         title: body.title
     }
 };
