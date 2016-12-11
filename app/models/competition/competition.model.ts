@@ -1,10 +1,17 @@
 import { BaseModel } from '../base.model';
+import { SeasonModel } from '../season/season.model';
+import { SeasonService } from '../../services/season/season.service';
+import { SportModel } from '../sport/sport.model';
+import { SportService } from '../../services/sport/sport.service';
+import { Http } from '@angular/http';
 
 export class CompetitionModel extends BaseModel {
     country: string;
     title: string;
     seasonId: number;
     sportId: number;
+    season?: SeasonModel;
+    sport?: SportModel;
 
     constructor(id: number = 0, country: string, seasonId: number, sportId: number, title: string) {
         super(id);

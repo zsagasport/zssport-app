@@ -21,7 +21,7 @@ import { SportService } from "../../services/sport/sport.service";
 
 export class CompetitionEditComponent implements OnInit {
 
-    countries: Array<String> = ["Hungary", "UK"];
+    countries: Array<String> = ["Hungary", "UK", "Germany"];
 
     myForm: FormGroup;
 

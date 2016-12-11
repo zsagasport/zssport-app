@@ -42,7 +42,9 @@ var SportService = (function (_super) {
             .catch(this.handleError);
     };
     SportService.prototype.getById = function (id) {
-        return this.http.get(this.actionUrl + '/:id' + id)
+        var params = new http_1.URLSearchParams();
+        params.set('_id', String(id));
+        return this.http.get(this.actionUrl + '/id', { 'search': params })
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };

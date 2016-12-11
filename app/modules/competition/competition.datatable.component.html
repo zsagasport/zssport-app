@@ -12,6 +12,26 @@
     </data-table-column>
 
     <data-table-column
+        [property]="'season'"
+        [header]="'Season'"
+        [sortable]="true"
+        [resizable]="true">
+        <template #dataTableCell let-item="item">
+            {{item.season.title}}
+        </template>
+    </data-table-column>
+
+    <data-table-column
+        [property]="'sport'"
+        [header]="'Sport'"
+        [sortable]="true"
+        [resizable]="true">
+        <template #dataTableCell let-item="item">
+            {{item.sport.title}}
+        </template>
+    </data-table-column>
+
+    <data-table-column
         [property]="'country'"
         [header]="'Country'"
         [sortable]="true"

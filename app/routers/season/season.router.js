@@ -21,17 +21,27 @@ var getSeasons = function (response) {
         }
     });
 };
+var getSeason = function (response, query) {
+    seasonDB.find(query, function (error, results) {
+        if (results) {
+            response.json(results[0]);
+        }
+        else {
+            response.end();
+        }
+    });
+};
 router.use(function (request, response, next) {
     next();
 });
+router.get('/id', function (request, response) {
+    getSeason(response, request.query);
+});
 router.get('/', function (request, response) {
-    console.log('Season started');
     getSeasons(response);
 });
 router.post('/', function (request, response) {
-    console.log(request);
     var season = createSeason(request.body);
-    console.log(season);
     seasonDB.insert(season, function (error, results) {
         if (results) {
             response.status(201).json(results);

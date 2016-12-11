@@ -1,7 +1,8 @@
 import { Injectable }       from "@angular/core";
 import { Http,
             Response,
-            Headers }       from '@angular/http';
+            Headers,
+            URLSearchParams }       from '@angular/http';
 import { Observable }       from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
@@ -42,7 +43,11 @@ export class SportService extends BaseService {
     }
 
     getById(id: number): Observable<BaseModel> {
-        return this.http.get(this.actionUrl + '/:id' + id)
+        let params: URLSearchParams = new URLSearchParams();
+
+        params.set('_id', String(id));
+
+        return this.http.get(this.actionUrl + '/id', {'search': params})
             .map((response: Response) => <SportModel>response.json())
             .catch(this.handleError);
     }

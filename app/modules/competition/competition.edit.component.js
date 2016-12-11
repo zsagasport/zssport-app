@@ -20,7 +20,7 @@ var CompetitionEditComponent = (function () {
         this.seasonService = seasonService;
         this.sportService = sportService;
         this.formBuilder = formBuilder;
-        this.countries = ["Hungary", "UK"];
+        this.countries = ["Hungary", "UK", "Germany"];
     }
     CompetitionEditComponent.prototype.ngOnInit = function () {
         this.getSports();
